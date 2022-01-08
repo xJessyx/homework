@@ -1,4 +1,4 @@
-Q2.
+Q3.
 
 Which answer is the correct way to initialize the array to output.
 
