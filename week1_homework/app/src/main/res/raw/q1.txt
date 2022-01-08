@@ -1,5 +1,4 @@
-
-
+Q1
 
 a. val id =9527                                       >>True
 b. var number : Int = 5.6                             >>Flase 類型Int是整數，小數位類型應該用Float, Double
