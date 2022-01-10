@@ -1,0 +1,12 @@
+Q3.
+
+Which answer is the correct way to initialize the array to output.
+
+a.val array = new Array(6)>>Flase , val array = IntArray(6)
+b.val array = {100}>>Flase , x
+c.val array = Array(6){1000.0.pow(10)}>>Flase ,pow(次方次數)，所以如果是固定數值，會呈現全都相同的乘方
+d.val array = Array(6){1000.0.pow(it)}>>True , 因it是非固定數值，才能形成升冪
+------------------------------------------------------------------------------------------
+
+SOL:d
+
