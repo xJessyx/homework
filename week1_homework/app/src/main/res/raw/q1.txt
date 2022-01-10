@@ -1,0 +1,11 @@
+Q1
+
+a. val id =9527                                       >>True
+b. var number : Int = 5.6                             >>Flase 類型Int是整數，小數位類型應該用Float, Double
+c. var title = "Hello Kotlin!"                        >>True
+d. val content : String = null                        >>Flase，val content : String? = null  ，需加上在String?才能放入null
+e. val number : Double? = 556.6                       >>True
+f. var list: List<String>? = listOf(null, null)       >>Flase,list 不能為null，除非用Nothing
+g. var list: List<String>? = listOf("Wayne", "Chen")  >>True
+h. list.size                                          >>Flase,因為list允許空值，所以需在變數後加?
+i. list?.size                                         >>True
