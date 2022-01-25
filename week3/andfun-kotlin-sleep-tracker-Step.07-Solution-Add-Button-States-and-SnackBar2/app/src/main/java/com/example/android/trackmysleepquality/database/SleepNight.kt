@@ -34,10 +34,6 @@ data class SleepNight(
         @ColumnInfo(name = "quality_rating")
         var sleepQuality: Int = -1,
 
-        @ColumnInfo(name = "quality_detailed")
-        var qualityDetailed :String =""
-
-
-) {
-
-}
+        @ColumnInfo(name = "describe_text")
+        var sleepDescribe: String = ""
+)

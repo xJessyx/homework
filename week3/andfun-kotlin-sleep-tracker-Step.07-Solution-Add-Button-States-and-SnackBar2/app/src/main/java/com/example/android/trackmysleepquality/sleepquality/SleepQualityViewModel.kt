@@ -16,6 +16,7 @@
 
 package com.example.android.trackmysleepquality.sleepquality
 
+import android.text.Editable
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -55,6 +56,8 @@ class SleepQualityViewModel(
     val navigateToSleepTracker: LiveData<Boolean?>
         get() = _navigateToSleepTracker
 
+    var editable: Editable? = null
+
     /**
      *
      */
@@ -66,20 +69,32 @@ class SleepQualityViewModel(
         _navigateToSleepTracker.value = null
     }
 
+
     /**
      * Sets the sleep quality and updates the database.
      *
      * Then navigates back to the SleepTrackerFragment.
      */
+//    fun onSetSleepDescribe(afterTextChanged: String) {
+//        viewModelScope.launch {
+//            val tonight = database.get(sleepNightKey) ?: return@launch
+//            tonight.sleepDescribe = afterTextChanged
+//            database.update(tonight)
+//        }
+//    }
+
     fun onSetSleepQuality(quality: Int) {
         viewModelScope.launch {
-                val tonight = database.get(sleepNightKey) ?: return@launch
-                tonight.sleepQuality = quality
-                database.update(tonight)
-
+            val tonight = database.get(sleepNightKey) ?: return@launch
+            tonight.sleepQuality = quality
+            tonight.sleepDescribe = editable.toString()
+            database.update(tonight)
             // Setting this state variable to true will alert the observer and trigger navigation.
             _navigateToSleepTracker.value = true
-        }
-    }
-}
 
+        }
+
+    }
+
+
+}

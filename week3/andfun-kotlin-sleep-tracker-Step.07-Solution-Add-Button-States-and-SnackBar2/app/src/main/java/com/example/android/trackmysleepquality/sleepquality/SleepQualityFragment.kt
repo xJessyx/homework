@@ -17,6 +17,8 @@
 package com.example.android.trackmysleepquality.sleepquality
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,6 +31,7 @@ import com.example.android.trackmysleepquality.R
 import com.example.android.trackmysleepquality.database.SleepDatabase
 import com.example.android.trackmysleepquality.databinding.FragmentSleepQualityBinding
 
+
 /**
  * Fragment that displays a list of clickable icons,
  * each representing a sleep quality rating.
@@ -37,6 +40,7 @@ import com.example.android.trackmysleepquality.databinding.FragmentSleepQualityB
  */
 class SleepQualityFragment : Fragment() {
 
+
     /**
      * Called when the Fragment is ready to display content to the screen.
      *
@@ -44,7 +48,6 @@ class SleepQualityFragment : Fragment() {
      */
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-
         // Get a reference to the binding object and inflate the fragment views.
         val binding: FragmentSleepQualityBinding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_sleep_quality, container, false)
@@ -66,6 +69,7 @@ class SleepQualityFragment : Fragment() {
         // give the binding object a reference to it.
         binding.sleepQualityViewModel = sleepQualityViewModel
 
+
         // Add an Observer to the state variable for Navigating when a Quality icon is tapped.
         sleepQualityViewModel.navigateToSleepTracker.observe(viewLifecycleOwner, Observer {
             if (it == true) { // Observed state is true.
@@ -74,6 +78,19 @@ class SleepQualityFragment : Fragment() {
                 // Reset state to make sure we only navigate once, even if the device
                 // has a configuration change.
                 sleepQualityViewModel.doneNavigating()
+            }
+        })
+
+        binding.editText.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+            }
+
+            override fun afterTextChanged(afterTextChanged: Editable?) {
+                //  var afterTextChanged:String = edit_text.text.toString()
+                sleepQualityViewModel.editable = afterTextChanged
             }
         })
 

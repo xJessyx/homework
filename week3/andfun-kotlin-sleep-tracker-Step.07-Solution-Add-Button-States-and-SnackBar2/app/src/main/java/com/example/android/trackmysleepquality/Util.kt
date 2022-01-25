@@ -95,6 +95,9 @@ fun formatNights(nights: List<SleepNight>, resources: Resources): Spanned {
                 append("${it.endTimeMilli.minus(it.startTimeMilli) / 1000 / 60}:")
                 // Seconds
                 append("${it.endTimeMilli.minus(it.startTimeMilli) / 1000}<br><br>")
+                append("<b>describe_text:</b>")
+                append("${it.sleepDescribe}<br><br>")
+
             }
         }
     }
