@@ -65,7 +65,8 @@ class PhotoGridAdapter( val onClickListener: OnClickListener ) :
      */
     override fun onCreateViewHolder(parent: ViewGroup,
                                     viewType: Int): MarsPropertyViewHolder {
-        return MarsPropertyViewHolder(GridViewItemBinding.inflate(LayoutInflater.from(parent.context)))
+        return MarsPropertyViewHolder(GridViewItemBinding
+            .inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
     /**
